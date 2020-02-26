@@ -5,7 +5,8 @@ import numpy as np
 from PIL import Image
 
 def imread(imgfile):
-    cv2.imread(imgfile)
+    img=cv2.imread(imgfile)
+    return img
 
 def imshow(wname,img):
     cv2.imshow(wname, img)
