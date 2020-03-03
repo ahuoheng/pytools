@@ -24,6 +24,13 @@ def img2gray(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
+def findface(faceimg):
+    frame = faceimg
+    classifier = cv2.CascadeClassifier("testdata/haarcascade_frontalface_alt.xml")
+    minSize = (10, 10)
+    faceRects = classifier.detectMultiScale(frame, 1.2, 2, cv2.CASCADE_SCALE_IMAGE, minSize)
+    return faceRects
+
 img = imread('testdata/face.jpg')
 imwrite('testdata/w.jpg', img)
 w, h = getsize(img)
